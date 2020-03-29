@@ -1,6 +1,8 @@
 import * as Yup from 'yup';
 
 import Pets from '../models/Pets';
+import File from '../models/File';
+import Client from '../models/Client';
 
 class PetsController {
 	async store(req, res) {
@@ -59,7 +61,43 @@ class PetsController {
 		});
 	}
 
-	async listAll(req, res) {}
+	async listAll(req, res) {
+		const pets = await Pets.findAll();
+
+		return res.json(pets);
+	}
+
+	async listByClient(req, res) {
+		const pets = await Pets.findAll({
+			where: {
+				client_id: req.params.id
+			},
+			include: [
+				{
+					model: File,
+					as: 'avatar',
+					attributes: ['id', 'path', 'url']
+				},
+				{
+					model: Client,
+					as: 'owner',
+					attributes: ['id', 'name']
+				}
+			]
+		});
+
+		return res.json(pets);
+	}
+
+	async delete(req, res) {
+		await Pets.destroy({
+			where: {
+				id: req.params.id
+			}
+		});
+
+		return res.send();
+	}
 }
 
 export default new PetsController();
