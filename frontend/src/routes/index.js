@@ -6,6 +6,7 @@ import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import AddAgenda from '../pages/Dashboard/AddAgenda';
 import Clients from '../pages/Clients';
+import EditClient from '../pages/Clients/EditClient';
 import Route from './Route';
 
 export default function Routes() {
@@ -16,6 +17,7 @@ export default function Routes() {
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/agenda" exact component={AddAgenda} isPrivate />
       <Route path="/clients" component={Clients} isPrivate />
+      <Route path="/client/:id" exact component={EditClient} isPrivate />
     </Switch>
   );
 }

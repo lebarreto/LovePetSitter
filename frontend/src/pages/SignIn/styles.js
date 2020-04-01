@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(-90deg, #d3c6cd, #e2c4c6);
 `;
 
 export const Content = styled.div`

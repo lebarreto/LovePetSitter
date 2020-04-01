@@ -24,10 +24,6 @@ export default function Clients() {
       <Header />
       <ClientHeader>
         <h1>Clientes</h1>
-        <button type="button" onClick={() => history.push('/agenda')}>
-          Adicionar um cliente
-          <FiPlus size={30} color="#cf298d" />
-        </button>
       </ClientHeader>
       <Table>
         <section>

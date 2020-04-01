@@ -6,7 +6,7 @@ export default (reducers) => {
     {
       key: 'lovepetsitter',
       storage,
-      whitelist: ['auth', 'agenda'],
+      whitelist: ['auth', 'agenda', 'client'],
     },
     reducers
   );

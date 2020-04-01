@@ -1,17 +1,23 @@
 import React from 'react';
-import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2, FiEdit } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber';
 
 import { Container, Button } from './styles';
 import ButtonMore from '../../../components/ButtonMore';
+import history from '../../../services/history';
+import { deleteRequest } from '../../../store/modules/client/actions';
 
 export default function ClientTable({ data }) {
   const dispatch = useDispatch();
 
-  function handleCancel(data) {
-    console.tron.log(data);
-    //dispatch(cancelRequest(data));
+  const PNF = PhoneNumberFormat;
+  const phoneUtil = PhoneNumberUtil.getInstance();
+  const number = phoneUtil.parseAndKeepRawInput(data.cellphone, 'BR');
+
+  function handleDelete(data) {
+    dispatch(deleteRequest(data));
   }
 
   return (
@@ -19,7 +25,7 @@ export default function ClientTable({ data }) {
       <small>#{data.id}</small>
       <small>{data.name}</small>
       <small>{data.email}</small>
-      <small>{data.cellphone}</small>
+      <small>{phoneUtil.format(number, PNF.INTERNATIONAL)}</small>
       <small>
         {data.address}, {data.city} - {data.uf}
       </small>
@@ -27,9 +33,18 @@ export default function ClientTable({ data }) {
       <ButtonMore>
         <Button>
           <div>
-            <button onClick={() => handleCancel(data.id)} type="button">
+            <button
+              onClick={() => history.push(`/client/${data.id}`)}
+              type="button"
+            >
+              <FiEdit color="#4D85EE" size={20} />
+              <span>Editar</span>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => handleDelete(data.id)} type="button">
               <FiTrash2 color="#DE3B3B" size={20} />
-              <span>Cancelar</span>
+              <span>Excluir</span>
             </button>
           </div>
         </Button>
