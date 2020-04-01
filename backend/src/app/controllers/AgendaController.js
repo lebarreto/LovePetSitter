@@ -8,8 +8,6 @@ import Client from '../models/Client';
 
 class AgendaController {
 	async store(req, res) {
-		const userId = req.headers.authorization;
-
 		const schema = Yup.object().shape({
 			client_id: Yup.number().required(),
 			date: Yup.date().required()
@@ -19,7 +17,7 @@ class AgendaController {
 			return res.status(400).json({ error: 'Validation fails.' });
 		}
 
-		const { client_id, date } = req.body;
+		const { client_id, date, user_id } = req.body;
 
 		const hourStart = startOfHour(parseISO(date));
 
@@ -29,7 +27,7 @@ class AgendaController {
 
 		const checkAvailability = await Agenda.findOne({
 			where: {
-				user_id: userId,
+				user_id,
 				calceled_at: null,
 				date: hourStart
 			}
@@ -40,7 +38,7 @@ class AgendaController {
 		}
 
 		const agenda = await Agenda.create({
-			user_id: userId,
+			user_id,
 			client_id,
 			date: hourStart
 		});
@@ -50,6 +48,9 @@ class AgendaController {
 
 	async listAll(req, res) {
 		const agenda = await Agenda.findAll({
+			where: {
+				calceled_at: null
+			},
 			include: [
 				{
 					model: Client,

@@ -18,11 +18,7 @@ class SessionController {
 
 		const { email, password } = req.body;
 
-		const user = User.findOne({
-			where: {
-				email: email
-			}
-		});
+		const user = await User.findOne({ where: { email } });
 
 		if (!user) {
 			return res.status(401).json({ error: 'User does not exists.' });
@@ -32,15 +28,7 @@ class SessionController {
 			return res.status(401).json({ error: 'Invalid password' });
 		}
 
-		const { id, name } = user;
-
-		return res.json({
-			user: {
-				id,
-				name,
-				email
-			}
-		});
+		return res.json({ user });
 	}
 
 	async storeClient(req, res) {
