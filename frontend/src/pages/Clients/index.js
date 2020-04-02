@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FiPlus } from 'react-icons/fi';
 
 import { Container, ClientHeader, Table } from './styles';
 import Header from '../../components/Header';
 import api from '../../services/api';
-import history from '../../services/history';
 import ClientTable from './ClientTable';
 
 export default function Clients() {

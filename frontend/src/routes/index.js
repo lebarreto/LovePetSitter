@@ -7,6 +7,8 @@ import Dashboard from '../pages/Dashboard';
 import AddAgenda from '../pages/Dashboard/AddAgenda';
 import Clients from '../pages/Clients';
 import EditClient from '../pages/Clients/EditClient';
+import Pets from '../pages/Pets';
+import PetsModal from '../pages/Pets/PetsModal';
 import Route from './Route';
 
 export default function Routes() {
@@ -18,6 +20,8 @@ export default function Routes() {
       <Route path="/agenda" exact component={AddAgenda} isPrivate />
       <Route path="/clients" component={Clients} isPrivate />
       <Route path="/client/:id" exact component={EditClient} isPrivate />
+      <Route path="/pets" component={Pets} isPrivate />
+      <Route path="/pet/:id" exact component={PetsModal} isPrivate />
     </Switch>
   );
 }

@@ -10,6 +10,8 @@ import { cancelRequest } from '../../../store/modules/agenda/actions';
 export default function DashTable({ data }) {
   const dispatch = useDispatch();
 
+  console.tron.log(data);
+
   function handleCancel(data) {
     console.tron.log(data);
     dispatch(cancelRequest(data));
