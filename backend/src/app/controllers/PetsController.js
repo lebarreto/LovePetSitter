@@ -62,7 +62,20 @@ class PetsController {
 	}
 
 	async listAll(req, res) {
-		const pets = await Pets.findAll();
+		const pets = await Pets.findAll({
+			include: [
+				{
+					model: File,
+					as: 'avatar',
+					attributes: ['id', 'path', 'url']
+				},
+				{
+					model: Client,
+					as: 'owner',
+					attributes: ['id', 'name']
+				}
+			]
+		});
 
 		return res.json(pets);
 	}
@@ -71,6 +84,28 @@ class PetsController {
 		const pets = await Pets.findAll({
 			where: {
 				client_id: req.params.id
+			},
+			include: [
+				{
+					model: File,
+					as: 'avatar',
+					attributes: ['id', 'path', 'url']
+				},
+				{
+					model: Client,
+					as: 'owner',
+					attributes: ['id', 'name']
+				}
+			]
+		});
+
+		return res.json(pets);
+	}
+
+	async listById(req, res) {
+		const pets = await Pets.findOne({
+			where: {
+				id: req.params.id
 			},
 			include: [
 				{

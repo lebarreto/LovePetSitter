@@ -33,6 +33,7 @@ routes.put('/pets/:id', PetsController.update);
 routes.get('/pets', PetsController.listAll);
 routes.get('/pets/:id', PetsController.listByClient);
 routes.delete('/pets/:id', PetsController.delete);
+routes.get('/pet/:id', PetsController.listById);
 
 routes.post('/agenda', AgendaController.store);
 routes.get('/agenda', AgendaController.listAll);
