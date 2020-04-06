@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 import User from '../models/User';
-import Clients from '../models/Client';
+import Client from '../models/Client';
 
 class SessionController {
 	async storeUser(req, res) {
@@ -45,29 +45,17 @@ class SessionController {
 
 		const { email, password } = req.body;
 
-		const client = Clients.findOne({
-			where: {
-				email: email
-			}
-		});
+		const clients = await Client.findOne({ where: { email } });
 
-		if (!client) {
+		if (!clients) {
 			return res.status(401).json({ error: 'Client does not exists.' });
 		}
 
-		if (!(await client).checkPassword(password)) {
+		if (!(await clients).checkPassword(password)) {
 			return res.status(401).json({ error: 'Invalid password' });
 		}
 
-		const { id, name } = client;
-
-		return res.json({
-			client: {
-				id,
-				name,
-				email
-			}
-		});
+		return res.json({ clients });
 	}
 }
 
