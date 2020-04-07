@@ -2,8 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 
-import { Container, Logo, ViewSign, Form, FormInput, FormLabel, Line,  SignLink,
-  SignLinkText, ViewButton, Action, ActionText } from './styles';
+import { Container, Logo, ViewSign, Form, FormInput, FormLabel, Line,  SignLink, SignLinkText, ViewButton, Action, ActionText } from './styles';
 import logo from '../../assets/image.jpg';
 import { signInRequest } from '../../store/modules/auth/actions';
 
@@ -20,7 +19,7 @@ export default function SignIn() {
     dispatch(signInRequest(email, password));
   }
 
-  return (
+  return(
     <Container>
       <ViewSign>
         <Logo source={logo} />
@@ -62,5 +61,5 @@ export default function SignIn() {
         </SignLink>
       </ViewSign>
     </Container>
-  );
+   );
 }

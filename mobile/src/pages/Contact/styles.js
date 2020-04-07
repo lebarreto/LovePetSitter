@@ -29,37 +29,38 @@ export const Line = styled.View`
   margin-top: 10px;
 `;
 
-export const AgendaList = styled.FlatList.attrs({
-	showsHorizontalScrollIndicator: false
-})`
-	margin-top: 20px;
+export const ViewButton = styled.View`
+	margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
-export const Agenda = styled.View`
-  padding: 24px;
+export const Action = styled.TouchableOpacity`
+	background-color: #d29dc9;
 	border-radius: 8px;
-	background-color: #f5f5f5;
-	margin-bottom: 16px;
-  opacity: ${props => (props.past ? 0.5 : 1)};
+	height: 50px;
+	width: 48%;
+	justify-content: center;
+  margin-bottom: 10px;
+	align-items: center;
 `;
 
-export const Label = styled.Text`
-  font-size: 18px;
-	color: #41414d;
+export const ActionText = styled.Text`
+	color: #fff;
+	font-size: 18px;
 	font-weight: bold;
 `;
 
-export const AgendaDate = styled.Text`
-  margin-top: 8px;
-	font-size: 16px;
-	margin-bottom: 24px;
-	color: #737380;
+export const ContactBox = styled.View`
+	padding: 24px;
+	border-radius: 8px;
+	margin-bottom: 16px;
 `;
 
-export const AgendaName = styled.Text`
-  margin-top: 8px;
-	font-size: 16px;
-	margin-bottom: 24px;
+export const ContactDescription = styled.Text`
+	font-size: 20px;
 	color: #737380;
+	margin-top: 16px;
+  font-weight: bold;
 `;
-

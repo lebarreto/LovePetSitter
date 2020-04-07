@@ -8,8 +8,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
-import Pets from './pages/Pets';
 import Profile from './pages/Profile';
+import RoutesPets from './RoutesPets';
+import Contact from './pages/Contact';
 
 const AppStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -51,7 +52,7 @@ export default function Routes() {
             />
             <Tab.Screen 
               name="Pets" 
-              component={Pets} 
+              component={RoutesPets} 
               options={{
                 tabBarLabel: 'Pets',
                 tabBarIcon: ({ color }) => (
@@ -66,6 +67,16 @@ export default function Routes() {
                 tabBarLabel: 'Meu perfil',
                 tabBarIcon: ({ color }) => (
                   <Icon name="person" size={20} color={color} />
+                ),
+              }} 
+            />
+            <Tab.Screen 
+              name="Contact" 
+              component={Contact} 
+              options={{
+                tabBarLabel: 'Contato',
+                tabBarIcon: ({ color }) => (
+                  <Icon name="phone-iphone" size={20} color={color} />
                 ),
               }} 
             />

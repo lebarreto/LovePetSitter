@@ -6,16 +6,8 @@ export const Container = styled.KeyboardAvoidingView.attrs({
   behavior: 'position',
 })`
   flex: 1;
-  justify-content: center;
   align-items: center;
   margin-right: 55px;
-  background: #f5f5f5;
-`;
-
-export const Logo = styled.Image`
-  width: 40%;
-  height: 20%;
-  border-radius: 30px;
 `;
 
 export const ViewSign = styled.View`
@@ -27,7 +19,6 @@ export const ViewSign = styled.View`
 
 export const Form = styled.View`
   align-self: stretch;
-  margin-top: 50px;
   width: 250px;
   margin-left: 70px;
   align-items: flex-start;
@@ -49,16 +40,6 @@ export const FormLabel = styled.Text`
 export const Line = styled.View`
   border: 1px solid #ddd;
   width: 100%;
-`;
-
-export const SignLink = styled.TouchableOpacity`
-  margin-top: 20px;
-`;
-
-export const SignLinkText = styled.Text`
-  color: #d29dc9;
-  font-weight: bold;
-  font-size: 18px;
 `;
 
 export const ViewButton = styled.View`
