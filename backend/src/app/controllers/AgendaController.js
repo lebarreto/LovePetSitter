@@ -90,6 +90,29 @@ class AgendaController {
 		return res.json(agenda);
 	}
 
+	async listByClient(req, res) {
+		const agenda = await Agenda.findAll({
+			where: {
+				client_id: req.params.id,
+				calceled_at: null
+			},
+			include: [
+				{
+					model: Client,
+					as: 'client',
+					attributes: ['id', 'name']
+				},
+				{
+					model: User,
+					as: 'user',
+					attributes: ['id', 'name']
+				}
+			]
+		});
+
+		return res.json(agenda);
+	}
+
 	async cancel(req, res) {
 		const agenda = await Agenda.findOne({
 			where: {

@@ -39,6 +39,7 @@ routes.post('/agenda', AgendaController.store);
 routes.get('/agenda', AgendaController.listAll);
 routes.get('/agenda/:id', AgendaController.listById);
 routes.put('/agenda/:id', AgendaController.cancel);
+routes.get('/agendas/:id', AgendaController.listByClient);
 
 routes.post('/files', upload.single('file'), FileController.upload);
 

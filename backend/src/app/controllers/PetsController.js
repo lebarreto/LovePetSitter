@@ -36,7 +36,7 @@ class PetsController {
 
 	async update(req, res) {
 		const schema = Yup.object().shape({
-			age: Yup.string().required(),
+			age: Yup.string(),
 			description: Yup.string(),
 			avatar_id: Yup.number()
 		});
