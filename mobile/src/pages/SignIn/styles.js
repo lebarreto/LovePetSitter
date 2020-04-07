@@ -3,12 +3,12 @@ import { Platform } from 'react-native';
 
 export const Container = styled.KeyboardAvoidingView.attrs({
   enabled: Platform.OS === 'ios',
-  behavior: 'position',
+  behavior: 'padding',
 })`
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin-right: 55px;
+  padding: 0 10px;
   background: #f5f5f5;
 `;
 
