@@ -55,7 +55,13 @@ Antes de executar esse projeto, inicie o backend que pode ser encontrado na past
 
 ## 💻 Instalação e execução do Mobile
 
-:construction: Em desenvolvimento  :construction: 
+Antes de executar esse projeto, inicie o backend que pode ser encontrado na pasta ```backend``` e siga as instruções acima.
+
+1. Entre na pasta do mobile: ```cd mobile```
+2. Rode ```yarn``` para instalar as dependências
+3. Altere a url da api para o seu IP (deve ser o mesmo colocado no arquivo .env do backend), acessando ```cd services``` ``` api.js```
+4. Rode ```yarn start``` para iniciar o cliente
+5. Escaneie o QR Code e abra o projeto com o aplicativo Expo
 
 ## :memo: Licença
 
