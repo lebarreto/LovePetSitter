@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import RoutesPets from './RoutesPets';
 import Contact from './pages/Contact';
+import Services from './pages/Services';
 
 const AppStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -77,6 +78,16 @@ export default function Routes() {
                 tabBarLabel: 'Contato',
                 tabBarIcon: ({ color }) => (
                   <Icon name="phone-iphone" size={20} color={color} />
+                ),
+              }} 
+            />
+            <Tab.Screen 
+              name="Services" 
+              component={Services} 
+              options={{
+                tabBarLabel: 'Serviços',
+                tabBarIcon: ({ color }) => (
+                  <Icon name="more-horiz" size={20} color={color} />
                 ),
               }} 
             />

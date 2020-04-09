@@ -42,6 +42,10 @@ export default function Contact() {
     Linking.openURL('https://www.facebook.com/LovePetSitter');
   }
 
+  function openInstagram() {
+    Linking.openURL('instagram://user?username=love.petsitter');
+  }
+
   function handleLogout() {
     dispatch(signOut());
   }
@@ -67,6 +71,9 @@ export default function Contact() {
 					</Action>
           <Action onPress={openFacebook}>
 						<ActionText>Facebook</ActionText>
+					</Action>
+          <Action onPress={openInstagram}>
+						<ActionText>Instagram</ActionText>
 					</Action>
         </ViewButton>
       </ContactBox>
