@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "src/server.js",
+	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node src/server.js"
@@ -33,7 +34,7 @@
 		"sucrase": "^3.13.0"
 	},
 	"engines": {
-    "node": "12.14.1",
-    "npm": "6.13.4"
-  }
+		"node": "12.14.1",
+		"npm": "6.13.4"
+	}
 }
