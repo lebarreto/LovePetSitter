@@ -11,4 +11,5 @@ module.exports = {
     underscored: true,
     underscoredAll: true,
   },
+  uri: process.env.DATABASE_URL,
 };
